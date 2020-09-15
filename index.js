@@ -1,7 +1,9 @@
 import { fifaData } from './fifa.js';
-console.log(fifaData);
+// console.log(fifaData);
 
-console.log('its working');
+// console.log('its working');
+
+
 // ⚽️ M  V P ⚽️ //
 
 /* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
@@ -12,24 +14,49 @@ console.log('its working');
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
 
+// const yearOrder = [];
+
+// fifaData.forEach(function(item){
+//     return yearOrder.push(`${item.Year}`,  `${item.Stage}`, `${item["Home Team Name"]}`);
+// });
+
+// console.log(yearOrder);
+
+const homeName = fifaData.filter(function(item){
+    return item.Stage === 'Final' && item.Year === 2014;
+});
+
+// console.log(homeName[0]);
+console.log(homeName[0]["Home Team Name"]);
+console.log(homeName[0]["Away Team Name"]);
+console.log(homeName[0]["Home Team Goals"]);
+console.log(homeName[0]["Away Team Goals"]);
+console.log(homeName[0]["Win conditions"]);
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
 
-    /* code here */
+function getFinals(fifaData) {
+    let finalsOrder = [];
+    fifaData.filter(item.Stage === "Final")
+    return finalsOrder.push(`${item.Stage}`);
+}
 
-};
+// console.log(getFinals());
+
+
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
+function getYears(cb) {
 
-    /* code here */
-
+    const years = [];
+    cb.forEach(function(item){
+    });
+    return years.push(item.Year);
 };
 
-getYears();
+// console.log(getYears(getFinals));
 
 /* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
